@@ -17,11 +17,21 @@ from django.contrib import admin
 from django.urls import path
 from django.contrib import admin
 from django.urls import path
-from TrackJob.views import home_view
+
+from TrackJob.views import home_view,register_view,login_view,showrecord_view,job_detail_view,job_add_view
 
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/',home_view, name = 'home')
+    path('home/',home_view, name = 'home'),
+    path('login/',login_view),
+    path('register/',register_view),
+    path('showrecord/',showrecord_view),
+    path('jobdetial/',job_detail_view),
+    path('jobadd/',job_add_view),
+
+
+
+
 ]

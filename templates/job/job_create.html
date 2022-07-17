@@ -1,0 +1,11 @@
+{% extends 'basepage.html' %}
+
+{%  block content %}
+<body>
+<form method = 'POST'> {%  csrf_token %}
+
+    {{  form.as_p }}
+    <input type ='submit' value = 'Save' />
+</form>
+</body>
+{% endblock %}

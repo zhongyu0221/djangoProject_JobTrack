@@ -3,7 +3,6 @@ from django.db import models
 # Create your models here.
 class Job(models.Model):
 
-
     #Blank: How the field is rendered (F = Requied Field, NULL: DB)
     Job_title = models.CharField(max_length=120) # required to have maxlength
     Job_JD = models.TextField()

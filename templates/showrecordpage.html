@@ -1,11 +1,12 @@
 {% extends 'basepage.html' %}
 
 {%  block content %}
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
 
-</body>
+
+    {%  for instance in object_list %}
+        <p>
+        {{ instance.Job_title }}, {{ instance.Job_JD }}
+        </p>
+
+    {% endfor %}
 {% endblock %}

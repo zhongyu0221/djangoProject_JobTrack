@@ -28,7 +28,7 @@ urlpatterns = [
     path('login/',login_view),
     path('register/',register_view),
     path('showrecord/',showrecord_view),
-    path('jobdetial/',job_detail_view),
+    path('jobdetial/<int:id>/',job_detail_view),
     path('jobadd/',job_add_view),
 
 

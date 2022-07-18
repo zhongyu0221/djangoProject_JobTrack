@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from django.http import HttpResponse
 # Create your views here.
 from .models import Job
@@ -23,17 +23,17 @@ def register_view(request,*args, **kwargs):
 
 
 def showrecord_view(request,*args, **kwargs):
-    return render(request,"showrecordpage.html",{})
+    queryset = Job.objects.all() #list of objects
+    context = {
+        "object_list": queryset
+    }
+    return render(request,"showrecordpage.html",context)
 
 
-#Render model here
-def job_detail_view(request):
-    obj = Job.objects.get(id = 1)
-    # context = {
-    #     'title':obj.Job_title,
-    #     'JD':obj.Job_JD
-    # }
-
+#Render model here. Dynamic URL
+def job_detail_view(request, id):
+    #obj = Job.objects.get(id = id)
+    obj = get_object_or_404(Job,id = id)
 
     context = {
         "object" :obj

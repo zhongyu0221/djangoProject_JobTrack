@@ -9,7 +9,13 @@ class JobForm(forms.ModelForm):
     class Meta:
         model = Job
         fields = [
-            'Job_title',
-            'Job_JD'
+            'Job_Title',
+            'Job_Description',
+            'Company_Name',
+            'Submitted_Date',
+            'Note',
+            'Required_Skills',
 
         ]
+
+

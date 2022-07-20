@@ -2,7 +2,6 @@
 <html lang="en">
 
 
-
 <head>
     <meta charset="UTF-8">
     <title>Job Hunting Tracker</title>
@@ -13,6 +12,17 @@
  <h1>Job Hunt Tracking App</h1>
 
  {% include 'navbar.html'%}
+
+ {% if messages %}
+     {%  for message in messages %}
+             {{ message }}
+         </div>
+
+
+     {%  endfor %}
+{%  endif %}
+
+
 
 
 

@@ -16,13 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
 
 from TrackJob.views import home_view,register_view,login_view,showrecord_view,job_detail_view,job_add_view
 
 
 
 urlpatterns = [
+    path('members/',include('members.urls')),
+    path('members/',include('django.contrib.auth.urls')),
+
+
+
     path('admin/', admin.site.urls),
     path('',home_view, name = 'home'),
     path('login/',login_view),

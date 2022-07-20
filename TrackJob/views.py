@@ -32,13 +32,14 @@ def showrecord_view(request,*args, **kwargs):
 
 #Render model here. Dynamic URL
 def job_detail_view(request, id):
-    #obj = Job.objects.get(id = id)
-    obj = get_object_or_404(Job,id = id)
 
-    context = {
-        "object" :obj
-    }
-    return render(request,'job/jobdetail.html',context)
+
+    if request.method == "POST":
+        obj = get_object_or_404(Job, id=id)
+        context = {
+            "object": obj
+        }
+    return render(request,'jobdetail.html',context)
 
 
 # Using Form
@@ -55,3 +56,4 @@ def job_add_view(request):
     return render(request,'job/job_create.html',context)
 
 
+#python manage.py flush reset database

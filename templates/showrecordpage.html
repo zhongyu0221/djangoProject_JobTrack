@@ -10,23 +10,24 @@
     <tr>
         <th scope="col">Job ID</th>
         <th scope="col">Job Title</th>
-        <th scope="col">Job Description</th>
         <th scope="col">Company Name</th>
-        <th scope="col">Note</th>
         <th scope="col">Required Skills</th>
+        <th scope="col">Job Description</th>
+        <th scope="col">Submitted Date</th>
+        <th scope="col">Detials</th>
     </tr>
-
-
 
     <Tbody>
         {%  for instance in object_list %}
             <tr>
                 <td>{{ instance.id}}</td>
                 <td>{{ instance.Job_Title }}</td>
-                <td>{{ instance.Job_Description }}</td>
                 <td>{{ instance.Company_Name }}</td>
-                <td>{{ instance.Note }}</td>
                 <td>{{ instance.Required_Skills }}</td>
+                <td>{{ instance.Job_Description }}</td>
+                <td>{{ instance.Submitted_Date }}</td>
+                <td><a href="{% url 'details' instance.id%}">{{instance.Job_Title}}</a>
+                </td>
           </tr>
         {% endfor %}
     </Tbody>
@@ -41,23 +42,8 @@ table, th, td {
     padding:10px;
 }
 
-
-
 </style>
 
 
 {% endblock %}
-
-
-
-
-
-{##}
-{# 'Job_Title',#}
-{#            'Job_Description',#}
-{#            'Company_Name',#}
-{#            'Submitted_Date',#}
-{#            'Note',#}
-{#            'Required_Skills',#}
-
 

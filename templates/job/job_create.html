@@ -2,13 +2,18 @@
 
 {%  block content %}
 <body>
-<form method = 'POST'> {%  csrf_token %}
-
-    {{  form.as_p }}
 
 
 
+<div class = "forminput">
+<form method = 'POST'>  {%  csrf_token %}
+
+    {{  form.as_p}}
     <input type ='submit' value = 'Save' />
 </form>
+</div>
+
+
 </body>
+
 {% endblock %}

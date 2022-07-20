@@ -24,11 +24,11 @@ from TrackJob.views import home_view,register_view,login_view,showrecord_view,jo
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home/',home_view, name = 'home'),
+    path('',home_view, name = 'home'),
     path('login/',login_view),
     path('register/',register_view),
     path('showrecord/',showrecord_view),
-    path('jobdetial/<int:id>/',job_detail_view),
+    path('jobdetial/<int:id>/',job_detail_view,name = 'details'),
     path('jobadd/',job_add_view),
 
 

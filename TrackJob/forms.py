@@ -1,21 +1,39 @@
 from django import forms
 from .models import Job
 
+
+
+
+
+
+class DateInput(forms.DateInput):
+    input_type = 'date'
+
+
+
+
+
 class JobForm(forms.ModelForm):
     #Job_title = forms.CharField(label = 'Title',widget = forms.TextInput(attrs={"palceholder":"YOur title"}))
-
-
 
     class Meta:
         model = Job
         fields = [
             'Job_Title',
-            'Job_Description',
             'Company_Name',
+            'Job_Description',
+            'Required_Skills',
             'Submitted_Date',
             'Note',
-            'Required_Skills',
-
         ]
+
+        widgets = {
+            'Submitted_Date': DateInput(),
+        }
+
+
+
+
+
 
 

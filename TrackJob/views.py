@@ -53,3 +53,5 @@ def job_add_view(request):
         'form':form
     }
     return render(request,'job/job_create.html',context)
+
+

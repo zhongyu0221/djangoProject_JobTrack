@@ -3,10 +3,61 @@
 {%  block content %}
 
 
-    {%  for instance in object_list %}
-        <p>
-        {{ instance.Job_title }}, {{ instance.Job_JD }}
-        </p>
+<h2> View All Your Records</h2>
+    <table>
 
-    {% endfor %}
+
+    <tr>
+        <th scope="col">Job ID</th>
+        <th scope="col">Job Title</th>
+        <th scope="col">Job Description</th>
+        <th scope="col">Company Name</th>
+        <th scope="col">Note</th>
+        <th scope="col">Required Skills</th>
+    </tr>
+
+
+
+    <Tbody>
+        {%  for instance in object_list %}
+            <tr>
+                <td>{{ instance.id}}</td>
+                <td>{{ instance.Job_Title }}</td>
+                <td>{{ instance.Job_Description }}</td>
+                <td>{{ instance.Company_Name }}</td>
+                <td>{{ instance.Note }}</td>
+                <td>{{ instance.Required_Skills }}</td>
+          </tr>
+        {% endfor %}
+    </Tbody>
+
+    </table>
+
+<style>
+table, th, td {
+  border:1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    padding:10px;
+}
+
+
+
+</style>
+
+
 {% endblock %}
+
+
+
+
+
+{##}
+{# 'Job_Title',#}
+{#            'Job_Description',#}
+{#            'Company_Name',#}
+{#            'Submitted_Date',#}
+{#            'Note',#}
+{#            'Required_Skills',#}
+
+

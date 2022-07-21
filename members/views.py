@@ -21,6 +21,12 @@ def login_user(request, *args, **kwargs):
 
 
 
+def logout_user(request, *args,**kwargs):
+   logout(request)
+   messages.success(request, ('You were logged out!'))
+
+   return redirect('home')
+
 
 
 

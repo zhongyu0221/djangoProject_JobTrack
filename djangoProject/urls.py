@@ -18,25 +18,21 @@ from django.urls import path
 from django.contrib import admin
 from django.urls import path,include
 
-from TrackJob.views import home_view,register_view,login_view,showrecord_view,job_detail_view,job_add_view,job_update_view
+from TrackJob.views import home_view,showrecord_view,job_add_view,job_update_view
 
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('members/',include('members.urls')),
     path('members/',include('django.contrib.auth.urls')),
+    path('TrackJob/',include('TrackJob.urls')),
+
 
 
 
     path('admin/', admin.site.urls),
     path('',home_view, name = 'home'),
-    path('login/',login_view),
-    path('register/',register_view),
-    path('showrecord/',showrecord_view),
-    path('jobdetial/<int:id>/',job_detail_view,name = 'details'),
-    path('jobadd/',job_add_view),
-    path('jobupdate/<int:id>',job_update_view, name = 'job_update'),
+
 
 
 ]
-urlpatterns += staticfiles_urlpatterns()

@@ -65,6 +65,7 @@
                 <td>{{ instance.Job_Description }}</td>
                 <td>{{ instance.Submitted_Date }}</td>
                 <td><a href="{% url 'job_update' instance.id %}">Update</a>
+                <td><a href="{% url 'job_delete' instance.id %}">Delete</a>
                 </td>
           </tr>
         {% endfor %}

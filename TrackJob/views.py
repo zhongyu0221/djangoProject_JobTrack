@@ -10,25 +10,12 @@ def home_view(request, *args, **kwargs):
 
 
 
-def login_view(request,*args, **kwargs):
-    readme = {
-        "sumamry": "This is a Job Hunting Tracker App powered by Django",
-        "contact": "Contact me at zhongyu0221@gmail.com",
-        "mylist":[123,323,1231]
-    }
-    return render(request,"loginpage.html",readme)
-
-
-def register_view(request,*args, **kwargs):
-    return render(request,"registerpage.html",{})
-
-
 def showrecord_view(request,*args, **kwargs):
     queryset = Job.objects.all() #list of objects
     context = {
         "object_list": queryset
     }
-    return render(request,"showrecordpage.html",context)
+    return render(request, "showrecordpage.html", context)
 
 
 
@@ -49,19 +36,7 @@ def job_add_view(request):
         'form':form
     }
 
-    return render(request,'job/job_create.html',context)
-
-
-#Render model here. Dynamic URL
-def job_detail_view(request, id):
-
-
-    if request.method == "POST":
-        obj = get_object_or_404(Job, id=id)
-        context = {
-            "object": obj
-        }
-    return render(request,'job/jobdetail.html',context)
+    return render(request, 'job_create.html', context)
 
 
 def job_update_view (request,id):
@@ -69,14 +44,21 @@ def job_update_view (request,id):
     form = JobForm(request.POST or None,instance=obj)
     if form.is_valid():
         form.save()
-        return redirect('/showrecord')
+        return redirect('/TrackJob/showrecord')
 
     context = {
         "object":obj,
         "form":form
     }
 
-    return render(request, 'job/job_update.html', context)
+    return render(request, 'job_update.html', context)
 
 
+
+def job_delete_view (request,id):
+    obj = Job.objects.get(id = id)
+    obj.delete()
+    messages.success(request,('Sucecsful delete the record'))
+
+    return redirect('/TrackJob/showrecord')
 #python manage.py flush reset database

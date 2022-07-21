@@ -64,7 +64,7 @@
                 <td>{{ instance.Required_Skills }}</td>
                 <td>{{ instance.Job_Description }}</td>
                 <td>{{ instance.Submitted_Date }}</td>
-                <td><a href="{% url 'details' instance.id%}">{{instance.Job_Title}}</a>
+                <td><a href="{% url 'job_update' instance.id %}">Update</a>
                 </td>
           </tr>
         {% endfor %}

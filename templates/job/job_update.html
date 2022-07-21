@@ -1,0 +1,20 @@
+{% extends 'basepage.html' %}
+
+{%  block content %}
+
+<h1> Update Job Details </h1>
+<body>
+
+
+
+<div class = "forminput">
+<form method = 'POST'>  {%  csrf_token %}
+    {{  form.as_p}}
+    <input type ='submit' value = 'Save' />
+</form>
+</div>
+
+
+</body>
+
+{% endblock %}

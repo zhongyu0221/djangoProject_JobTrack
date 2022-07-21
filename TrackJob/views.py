@@ -31,17 +31,6 @@ def showrecord_view(request,*args, **kwargs):
     return render(request,"showrecordpage.html",context)
 
 
-#Render model here. Dynamic URL
-def job_detail_view(request, id):
-
-
-    if request.method == "POST":
-        obj = get_object_or_404(Job, id=id)
-        context = {
-            "object": obj
-        }
-    return render(request,'jobdetail.html',context)
-
 
 # Using Form
 
@@ -61,6 +50,33 @@ def job_add_view(request):
     }
 
     return render(request,'job/job_create.html',context)
+
+
+#Render model here. Dynamic URL
+def job_detail_view(request, id):
+
+
+    if request.method == "POST":
+        obj = get_object_or_404(Job, id=id)
+        context = {
+            "object": obj
+        }
+    return render(request,'job/jobdetail.html',context)
+
+
+def job_update_view (request,id):
+    obj = Job.objects.get(id = id)
+    form = JobForm(request.POST or None,instance=obj)
+    if form.is_valid():
+        form.save()
+        return redirect('/showrecord')
+
+    context = {
+        "object":obj,
+        "form":form
+    }
+
+    return render(request, 'job/job_update.html', context)
 
 
 #python manage.py flush reset database

@@ -20,7 +20,7 @@ from django.urls import path,include
 
 from TrackJob.views import home_view,register_view,login_view,showrecord_view,job_detail_view,job_add_view
 
-
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('members/',include('members.urls')),
@@ -37,6 +37,5 @@ urlpatterns = [
     path('jobadd/',job_add_view),
 
 
-
-
 ]
+urlpatterns += staticfiles_urlpatterns()

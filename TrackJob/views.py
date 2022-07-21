@@ -1,8 +1,9 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render,get_object_or_404,redirect
 from django.http import HttpResponse
 # Create your views here.
 from .models import Job
 from .forms import JobForm
+from django.contrib import messages
 
 def home_view(request, *args, **kwargs):
     return render(request,"homepage.html",{})
@@ -48,11 +49,17 @@ def job_add_view(request):
     form = JobForm(request.POST or None)
     if form.is_valid():
         form.save()
+        messages.success(request,('Successfully Saved Record'))
+        form = JobForm() #re-render it after save
+
+    else:
+        messages.success(request, ('unable to save record, please try again'))
         form = JobForm() #re-render it after save
 
     context = {
         'form':form
     }
+
     return render(request,'job/job_create.html',context)
 
 

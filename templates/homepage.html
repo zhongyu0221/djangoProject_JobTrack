@@ -2,19 +2,27 @@
 
 {%  block content %}
 
+
+
 <head>
     <meta charset="UTF-8">
     <title>Home Page</title>
 </head>
 
-    <h2>Welcome come to your Job Hunting Tracker, {{ request.user }}!</h2>
 
-jiajiajia  this is the home page!!!!!!!!!!!!!!!!!!
+    {%  if user.is_authenticated %}
+            <h2>Welcome come to your Job Hunting Tracker, {{ request.user }}!</h2>
+
+        {%  else %}
+        <h2>Please Log In to the App</h2>
+
+        <button onclick= "location.href= '/members/login_user/'" type="button">
+         Log In</button>
+        {% endif %}
 
 
-<body>
-
-
-</body>
+{#<body>#}
+{#<img src="https://www.shutterstock.com/search/welcome" alt="home" />#}
+{#</body>#}
 
 {% endblock %}

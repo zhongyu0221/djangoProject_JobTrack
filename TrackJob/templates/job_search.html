@@ -3,10 +3,10 @@
 {%  block content %}
 <body>
 
-this is the search page...
+{#this is the search page...#}
 
 {%  if searchfield %}
-        <h1>You search for {{ searchfield }}</h1>
+        <h2>You search for {{ searchfield }}</h2>
 
 <table class="table">
   <thead>
@@ -35,6 +35,10 @@ this is the search page...
           </tr>
         {% endfor %}
     </Tbody>
+
+    <button onclick= "location.href= '/TrackJob/showrecord'" type="button">
+         Back to Result Page </button>
+
 </table>
 
 

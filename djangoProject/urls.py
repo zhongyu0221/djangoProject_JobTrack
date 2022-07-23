@@ -17,6 +17,9 @@ from django.contrib import admin
 from django.urls import path
 from django.contrib import admin
 from django.urls import path,include
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 from TrackJob.views import home_view,showrecord_view,job_add_view,job_update_view
 
@@ -31,8 +34,8 @@ urlpatterns = [
 
 
     path('admin/', admin.site.urls),
-    path('',home_view, name = 'home'),
+    path('',home_view, name = 'home'),]
 
 
 
-]
+# ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -23,13 +23,14 @@ def showrecord_view(request,*args, **kwargs):
 
 def job_add_view(request):
     form = JobForm(request.POST or None)
-    if form.is_valid():
+    # if request == 'POST':
+    if  form.is_valid():
         form.save()
         messages.success(request,('Successfully Saved Record'))
         form = JobForm() #re-render it after save
 
     else:
-        messages.success(request, ('unable to save record, please try again'))
+        messages.success(request, ('Please fill all the fields'))
         form = JobForm() #re-render it after save
 
     context = {

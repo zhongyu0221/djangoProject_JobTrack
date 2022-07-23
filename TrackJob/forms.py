@@ -3,14 +3,8 @@ from .models import Job
 
 
 
-
-
-
 class DateInput(forms.DateInput):
     input_type = 'date'
-
-
-
 
 
 class JobForm(forms.ModelForm):
@@ -29,6 +23,11 @@ class JobForm(forms.ModelForm):
 
         widgets = {
             'Submitted_Date': DateInput(),
+            'Job_Title': forms.TextInput(attrs = {'class':'form-control'}),
+            'Company_Name': forms.TextInput(attrs={'class': 'form-control'}),
+            'Job_Description': forms.Textarea(attrs={'class': 'form-control'}),
+            'Note': forms.Textarea(attrs={'class': 'form-control'}),
+
         }
 
 

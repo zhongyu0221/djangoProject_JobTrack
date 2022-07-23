@@ -1,11 +1,10 @@
 {% extends 'basepage.html' %}
 
 {%  block content %}
+
 <body>
-
-
-
-<div class = "forminput">
+<div class = content>
+<div class = "form-group">
 <form method = 'POST'>  {%  csrf_token %}
 
     {{  form.as_p}}
@@ -13,7 +12,13 @@
 </form>
 </div>
 
-
+</div>
 </body>
 
+<style>
+.content{
+    padding-left: 30%;
+    padding-right: 30%;
+}
+</style>
 {% endblock %}

@@ -7,9 +7,11 @@
     <title> Log In </title>
 </head>
 
+    <div class = 'content'>
     <form action ="" method=POST>
     {%  csrf_token %}
 
+  <!-- Email input -->
 
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Email address/User Name</label>
@@ -23,26 +25,17 @@
   <button type="submit" class="btn btn-primary">Submit</button>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     </form>
-
-
+</div>
 
 <body>
 
 
 </body>
-
+<style>
+.content{
+    padding-left: 30%;
+    padding-right: 30%;
+}
+</style>
 {% endblock %}

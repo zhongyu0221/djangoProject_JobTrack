@@ -6,15 +6,20 @@
 <body>
 
 
-
+<div class = content>
 <div class = "forminput">
 <form method = 'POST'>  {%  csrf_token %}
     {{  form.as_p}}
     <input type ='submit' value = 'Save' />
 </form>
 </div>
-
+</div>
 
 </body>
-
+<style>
+.content{
+    padding-left: 30%;
+    padding-right: 30%;
+}
+</style>
 {% endblock %}

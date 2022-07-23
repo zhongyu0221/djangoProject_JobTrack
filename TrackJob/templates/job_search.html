@@ -1,0 +1,60 @@
+{% extends 'basepage.html' %}
+
+{%  block content %}
+<body>
+
+this is the search page...
+
+{%  if searchfield %}
+        <h1>You search for {{ searchfield }}</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+        <th scope="col">Job ID</th>
+        <th scope="col">Job Title</th>
+        <th scope="col">Company Name</th>
+        <th scope="col">Required Skills</th>
+        <th scope="col">Job Description</th>
+        <th scope="col">Submitted Date</th>
+        <th scope="col">Detials</th>
+    </tr>
+  </thead>
+<Tbody>
+        {%  for instance in searcresult %}
+            <tr>
+                <td>{{ instance.id}}</td>
+                <td>{{ instance.Job_Title }}</td>
+                <td>{{ instance.Company_Name }}</td>
+                <td>{{ instance.Required_Skills }}</td>
+                <td>{{ instance.Job_Description }}</td>
+                <td>{{ instance.Submitted_Date }}</td>
+                <td><a href="{% url 'job_update' instance.id %}">Update</a>
+                <td><a href="{% url 'job_delete' instance.id %}">Delete</a>
+                </td>
+          </tr>
+        {% endfor %}
+    </Tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% else %}
+<h1>Empty input</h1>
+{% endif %}
+
+
+</body>
+
+{% endblock %}

@@ -75,3 +75,4 @@ def job_search_view (request):
         return render(request,'job_search.html',{'searchfield':searchfield,'searcresult':searcresult})
     else:
         return render(request,'job_search.html',{})
+

@@ -21,20 +21,15 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 
-from TrackJob.views import home_view
+from .views import contact_view
 
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+
 
 urlpatterns = [
-    path('members/',include('members.urls')),
-    path('members/',include('django.contrib.auth.urls')),
-    path('TrackJob/',include('TrackJob.urls')),
-    path('contact/',include('contact.urls')),
 
+    path('contactme/', contact_view, name='contactme'),
 
-    path('admin/', admin.site.urls),
-    path('',home_view, name = 'home'),
-   ]
+]
 
 
 

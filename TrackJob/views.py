@@ -4,11 +4,14 @@ from django.http import HttpResponse
 from .models import Job
 from .forms import JobForm
 from django.contrib import messages
+from django.views import View
+#
+# def home_view(request, *args, **kwargs):
+#     return render(requst,"homepage.html",{})
 
-def home_view(request, *args, **kwargs):
-    return render(request,"homepage.html",{})
-
-
+class homeview(View):
+    def get(self,request,*args,**kwargs):
+        return render(request,"homepage.html",{})
 
 def showrecord_view(request,*args, **kwargs):
     queryset = Job.objects.all() #list of objects

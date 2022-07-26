@@ -3,7 +3,7 @@ from django.urls import path
 from django.contrib import admin
 from django.urls import path, include
 
-from TrackJob.views import home_view, showrecord_view, job_add_view, job_update_view,job_delete_view,job_search_view
+from TrackJob.views import showrecord_view, job_add_view, job_update_view,job_delete_view,job_search_view
 
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 

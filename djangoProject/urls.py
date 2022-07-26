@@ -21,7 +21,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 
-from TrackJob.views import home_view
+from TrackJob.views import homeview
 
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
@@ -33,7 +33,7 @@ urlpatterns = [
 
 
     path('admin/', admin.site.urls),
-    path('',home_view, name = 'home'),
+    path('',homeview.as_view(), name = 'home'),
    ]
 
 

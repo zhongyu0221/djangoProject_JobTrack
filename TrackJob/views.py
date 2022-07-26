@@ -22,20 +22,27 @@ def showrecord_view(request,*args, **kwargs):
 # Using Form
 
 def job_add_view(request):
-    form = JobForm(request.POST or None)
+    # form = JobForm(request.POST or None) #uncleaned data
     # if request == 'POST':
-    if  form.is_valid():
-        form.save()
-        messages.success(request,('Successfully Saved Record'))
-        form = JobForm() #re-render it after save
-
-    else:
-        messages.success(request, ('Please fill all the fields'))
-        form = JobForm() #re-render it after save
-
+    form = JobForm()
     context = {
-        'form':form
+        'form': form
     }
+    if request.method =='POST':
+        form = JobForm(request.POST)
+        context['form'] = form
+
+        if  form.is_valid(): #form is cleaned
+            title = form.cleaned_data.get('Job_Title')
+            print(title,'test title in view.py')
+            form.save()
+            messages.success(request,('Successfully Saved Record'))
+            form = JobForm() #re-render it after save
+
+        else:
+            messages.success(request, ('Please fill all the fields'))
+            form = JobForm() #re-render it after save
+
 
     return render(request, 'job_create.html', context)
 

@@ -31,6 +31,7 @@ urlpatterns = [
     path('TrackJob/',include('TrackJob.urls')),
     path('contact/',include('contact.urls')),
     path('DRF/',include('api.urls')),
+    path('learnDRF/',include('learnDRF.urls')),
 
 
     path('admin/', admin.site.urls),

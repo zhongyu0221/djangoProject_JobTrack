@@ -1,10 +1,10 @@
 from django.urls import path
-from .views import getData_view
+#from .views import getData_view
 
 
 urlpatterns = [
 
-    path('api/', getData_view),
+   # path('api/', getData_view),
 
    ]
 

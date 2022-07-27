@@ -43,6 +43,9 @@ INSTALLED_APPS = [
     'TrackJob',
     'members',
     'contact',
+
+    'rest_framework',
+    'api',
 ]
 
 MIDDLEWARE = [

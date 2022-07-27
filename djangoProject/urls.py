@@ -30,6 +30,7 @@ urlpatterns = [
     path('members/',include('django.contrib.auth.urls')),
     path('TrackJob/',include('TrackJob.urls')),
     path('contact/',include('contact.urls')),
+    path('DRF/',include('api.urls')),
 
 
     path('admin/', admin.site.urls),

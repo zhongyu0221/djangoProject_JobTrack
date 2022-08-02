@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
+from .forms import RegisterForm
 
 def login_user(request, *args, **kwargs):
 
@@ -30,5 +31,24 @@ def logout_user(request, *args,**kwargs):
 
 
 
+def register_view(request, *args,**kwargs):
+    # if request == 'POST':
+    form = RegisterForm()
+    context = {
+        'form': form
+    }
+    if request.method =='POST':
+        form = RegisterForm(request.POST)
+        context['form'] = form
+
+        if  form.is_valid(): #form is cleaned
+            form.save()
+            messages.success(request,('You have registed!'))
+            form = RegisterForm() #re-render it after save
+
+        else:
+            messages.success(request, ('Punsuccess register!s'))
+            form = RegisterForm() #re-render it after save
 
 
+    return render(request, "register/register.html", context)

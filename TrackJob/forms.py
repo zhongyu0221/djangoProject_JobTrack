@@ -1,6 +1,6 @@
 from django import forms
 from .models import Job
-
+from django.core.exceptions import ValidationError
 
 
 class DateInput(forms.DateInput):
@@ -15,7 +15,7 @@ class JobForm(forms.ModelForm):
     Job_Description = forms.TextInput()
     Note = forms.TextInput()
 
-    def clean_title(self, *args, **kwargs):
+    def clean_Job_Title(self, *args, **kwargs):
         print('am i not run it at all?')
         clean_data = self.cleaned_data  # distionay contains all fields
         Job_Title = clean_data.get('Job_Title')
@@ -23,7 +23,7 @@ class JobForm(forms.ModelForm):
 
         if "haha" in Job_Title:
             print('validation error noted')
-            raise forms.validationError(_('you cannot have haha in your form'))
+            raise forms.ValidationError('you cannot have haha in your form')
         else:
             return Job_Title
 

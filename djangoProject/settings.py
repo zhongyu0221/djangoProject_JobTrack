@@ -46,7 +46,8 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'api',
-    'learnDRF',
+
+
 ]
 
 MIDDLEWARE = [

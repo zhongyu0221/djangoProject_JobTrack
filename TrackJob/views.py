@@ -5,6 +5,7 @@ from .models import Job
 from .forms import JobForm
 from django.contrib import messages
 from django.views import View
+from django.contrib.auth.decorators import login_required
 #
 # def home_view(request, *args, **kwargs):
 #     return render(requst,"homepage.html",{})
@@ -13,10 +14,15 @@ class homeview(View):
     def get(self,request,*args,**kwargs):
         return render(request,"homepage.html",{})
 
-def showrecord_view(request,*args, **kwargs):
-    queryset = Job.objects.all() #list of objects
+
+
+@login_required
+def showrecord_view(request, *args, **kwargs):
+#     queryset = Job.objects.all() #list of objects
+
+    user_record_queryset = Job.objects.filter(user = request.user)
     context = {
-        "object_list": queryset
+        "object_list": user_record_queryset
     }
     return render(request, "showrecordpage.html", context)
 
@@ -28,6 +34,7 @@ def job_add_view(request):
     # form = JobForm(request.POST or None) #uncleaned data
     # if request == 'POST':
     form = JobForm()
+
     context = {
         'form': form
     }
@@ -36,9 +43,9 @@ def job_add_view(request):
         context['form'] = form
 
         if  form.is_valid(): #form is cleaned
-            title = form.cleaned_data.get('Job_Title')
-            print(title,'test title in view.py')
-            form.save()
+            profile = form.save(commit=False)
+            profile.user = request.user
+            profile.save()
             messages.success(request,('Successfully Saved Record'))
             form = JobForm() #re-render it after save
 

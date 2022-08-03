@@ -1,5 +1,6 @@
 from django.db import models
-
+from django.contrib.auth.models import User
+from django.conf import settings
 # Create your models here.
 
 
@@ -7,6 +8,11 @@ from django.db import models
 class Job(models.Model):
 
     #Blank: How the field is rendered (F = Requied Field, NULL: DB)
+
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+    )
     Job_Title = models.CharField(max_length=120) # required to have maxlength
     Company_Name = models.CharField(max_length=120)
     SkillType = [('Python', 'Python'), ('Java', 'Java'), ('SQL', 'SQL'), ('HTML', 'HTML/CSS'),('Other','Other') ]  # enum

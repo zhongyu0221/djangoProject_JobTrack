@@ -30,6 +30,7 @@ class JobForm(forms.ModelForm):
 
     class Meta:
         model = Job
+        exclude = ["user"]
         fields = [
             'Job_Title',
             'Company_Name',

@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.core.mail import send_mail
 
 def contact_view (request,*args, **kwargs):
+
     if request.method =='POST':
         txtName= request.POST['txtName'] # get from html name
         txtEmail = request.POST['txtEmail']

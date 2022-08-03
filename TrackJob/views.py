@@ -83,10 +83,11 @@ def job_delete_view (request,id):
 
 
 
+@login_required
 def job_search_view (request):
     if request.method =='POST':
         searchfield = request.POST['searchfield']
-        searcresult = Job.objects.filter(Job_Title__contains=searchfield)
+        searcresult = Job.objects.filter(Job_Title__contains=searchfield, user = request.user)
 
 
         return render(request,'job_search.html',{'searchfield':searchfield,'searcresult':searcresult})

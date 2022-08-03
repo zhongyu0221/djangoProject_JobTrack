@@ -1,7 +1,7 @@
 # Django_JobTrackApp
 
 
-Django: CRUD, authentication 
+Django: CRUD, authentication, registeration, form validation
 CSS/JS: Bootstrap
 
 ref:

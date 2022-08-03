@@ -33,6 +33,7 @@ def logout_user(request, *args,**kwargs):
 
 def register_view(request, *args,**kwargs):
     # if request == 'POST':
+    logout(request)
     form = RegisterForm()
     context = {
         'form': form

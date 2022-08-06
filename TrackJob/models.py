@@ -13,6 +13,7 @@ class Job(models.Model):
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
     )
+#     CASCADE: When the referenced object is deleted, also delete the objects that have references to it
     Job_Title = models.CharField(max_length=120) # required to have maxlength
     Company_Name = models.CharField(max_length=120)
     SkillType = [('Python', 'Python'), ('Java', 'Java'), ('SQL', 'SQL'), ('HTML', 'HTML/CSS'),('Other','Other') ]  # enum

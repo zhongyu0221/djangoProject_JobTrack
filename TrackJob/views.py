@@ -76,7 +76,7 @@ def job_update_view (request,id):
 def job_delete_view (request,id):
     obj = Job.objects.get(id = id)
     obj.delete()
-    messages.success(request,('Sucecsful delete the record'))
+    messages.success(request,('successfully delete the record'))
 
     return redirect('/TrackJob/showrecord')
 #python manage.py flush reset database

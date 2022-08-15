@@ -13,14 +13,24 @@
     <img src="{% static 'welcome2.jpg' %}" alt="My image">
     {%  if user.is_authenticated %}
             <h2>Welcome come to your Job Hunting Tracker, {{ request.user }}!</h2>
+<br>
+
+               <div  class="d-grid gap-2 col-6 mx-auto">
+  <button class="btn btn-primary" onclick= "location.href= '/TrackJob/jobadd/'" type="button">Add Record</button>
+  <button class="btn btn-primary" onclick= "location.href= '/TrackJob/showrecord/'" type="button">View Record</button>
+    </div>
+
 
         {%  else %}
         <h2>Please Log In to the App</h2>
 
 
-        <p><button class="btn btn-primary btn-lg" onclick= "location.href= '/members/login_user/'" type="button">
-         Log In Here</button>
-        </p>
+        <div  class="d-grid gap-2 col-6 mx-auto">
+  <button class="btn btn-primary" onclick= "location.href= '/members/login_user/'" type="button">Log In Here</button>
+  <button class="btn btn-primary" onclick= "location.href= '/members/register/'" type="button">Register User</button>
+    </div>
+
+
     {% endif %}
 
 

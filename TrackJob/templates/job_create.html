@@ -3,12 +3,13 @@
 {%  block content %}
 
 <body>
+<h4>  Add a Job Application Record </h4>
 <div class = content>
 <div class = "form-group">
-<form method = 'POST'>  {%  csrf_token %}
+<form method = 'POST' >  {%  csrf_token %}
 
     {{  form.as_p}}
-    <input type ='submit' value = 'Save' />
+    <input class="btn btn-primary" type ='submit' value = 'Save' />
 </form>
 </div>
 

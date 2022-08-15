@@ -48,7 +48,7 @@ def register_view(request, *args,**kwargs):
             form = RegisterForm() #re-render it after save
 
         else:
-            messages.success(request, ('Punsuccess register!s'))
+            messages.success(request, ('Unsuccess register!'))
             form = RegisterForm() #re-render it after save
 
 
